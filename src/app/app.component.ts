@@ -1,34 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { SlideshowComponent } from "./slideshow/slideshow.component";
+import { MenuComponent } from "./menu/menu.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [CommonModule, RouterOutlet, SlideshowComponent, MenuComponent]
 })
-export class AppComponent implements OnInit {
-  images = ['business.jpg', 'car.jpg', 'code.jpg'];
-  currentImage = 0;
-  showImage = true;
-
-  ngOnInit(){
-    this.updateImage();
-  }
-
-  updateImage() {
-    setInterval (() => {
-      this.currentImage++;
-      this.currentImage = this.currentImage % this.images.length;
-      this.showImage = false;
-
-      setTimeout(() => {
-        this.showImage = true;
-      }, 10);
-    },8000);
-  }
+export class AppComponent{
+  
 
   
 }
